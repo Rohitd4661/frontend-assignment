@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import "./App.css";
+import InputPage from "./Pages/InputPage";
+import TablePage from "./Pages/TablePage";
 
 function App() {
+  const [page, setPage] = useState<"input" | "table">("input");
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className={`app ${theme}`}>
+      <nav className="navbar">
+        <div className="nav-center">
+          <button
+            className={`nav-btn ${page === "input" ? "active" : ""}`}
+            onClick={() => setPage("input")}
+          >
+            Input
+          </button>
+          <button
+            className={`nav-btn ${page === "table" ? "active" : ""}`}
+            onClick={() => setPage("table")}
+          >
+            DataTable
+          </button>
+        </div>
+        <button
+          className="theme-toggle"
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         >
-          Learn React
-        </a>
-      </header>
+          {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+        </button>
+      </nav>
+
+      <main className="main-content">
+        {page === "input" ? <InputPage theme={theme} /> : <TablePage />}
+      </main>
     </div>
   );
 }
