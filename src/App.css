@@ -1,0 +1,77 @@
+/* App global */
+.app {
+  height: 110vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s, color 0.3s;
+}
+
+.app.light {
+  background: #f9fafb;
+  color: #111827;
+}
+
+.app.dark {
+  background: #1f2937;
+  color: #f9fafb;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+  background: #111827;
+  color: white;
+  position: relative;
+}
+
+.nav-center {
+  display: flex;
+  gap: 14px;
+}
+
+.nav-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #374151;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nav-btn:hover {
+  background: #4b5563;
+}
+
+.nav-btn.active {
+  background: #2563eb;
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 20px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.theme-toggle:hover {
+  background: #1d4ed8;
+}
+
+/* Main content centered */
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
